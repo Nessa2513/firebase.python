@@ -1,13 +1,11 @@
 from pyfirmata import Arduino, util
 from tkinter import *
-from PIL import Image
-from PIL import ImageTk
 import time
 data = []
 d = 0
 valor = 0
 prom = 0
-placa = Arduino ('COM11')
+placa = Arduino ('COM3')
 it = util.Iterator(placa)
 it.start()
 a_0 = placa.get_pin('a:0:i')
@@ -25,11 +23,8 @@ ventana.title("UI para sistemas de control")
 marco1 = Frame(ventana, bg="gray", highlightthickness=1, width=1280, height=800, bd= 5)
 marco1.place(x = 0,y = 0)
 b=Label(marco1,text="")
-img = Image.open("C:/Users/Camilo/Downloads/logousa.png")
-img = img.resize((150,150), Image.ANTIALIAS)
-photoImg=  ImageTk.PhotoImage(img)
-b.configure(image=photoImg)
-b.place(x = 760,y = 20)
+img = PhotoImage(file='C:/Users/vanes/Desktop/logousa.png')
+logo = Label(ventana,image=img).place(x = 760,y = 20)
 
 valor= Label(marco1, text="0.0,", bg='cadet blue1', font=("Arial Bold", 15), fg="white", width=5)
 variable=StringVar()
