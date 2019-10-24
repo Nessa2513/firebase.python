@@ -53,7 +53,26 @@ valor.place(x=20, y=90)
 start_button=Button(ventana,text="start",command=update_label)
 start_button.place(x=20, y=160)
 
+while 1:
+    x=a_0.read()
+    print(x)
+    time.sleep(0.2)
+    if(x>0 and x<0.2):
+        led1.write(1)
 
+    if(x>0.2 and x<0.4):
+        led2.write(1)
+
+    if(x>0.4 and x<0.6):
+        led3.write(1)
+
+    if(x>0.5):
+        led1.write(0)
+        led2.write(0)
+        led3.write(0)
+        led4.write(1)
+        led5.write(1)
+        led6.write(1)
 
 
 ventana.mainloop()
